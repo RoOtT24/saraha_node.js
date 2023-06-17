@@ -22,7 +22,7 @@ export const signup = async (req, res) => {
         
         const token = generateToken({email}, process.env.EMAIL_TOKEN);
 
-        const link = `https://saraha-app-s8r3.onrender.com/auth/ /${token}`;
+        const link = `https://saraha-app-s8r3.onrender.com/auth/${token}`;
         
         sendEmail(email, 'confirm email', 'confirm your email so you can login\n', `<a href="${link}">verify your email</a>`)
         const createdUser = await userModel.create({userName, email, password:hashedPassword});
